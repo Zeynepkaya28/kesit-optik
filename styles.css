@@ -224,6 +224,7 @@ h1, h2, h3, p { margin: 0; }
   .nav .wrap { height: 60px; gap: 12px; }
   .nav-links, .nav-end .btn { display: none; }
   .nav-end .menu-btn { display: inline-flex; }
+  .nav-end { gap: 12px; }
   .nav.is-open .nav-links {
     display: flex; flex-direction: column; gap: 0;
     position: absolute; left: 0; right: 0; top: 100%;
@@ -451,7 +452,7 @@ h1, h2, h3, p { margin: 0; }
 .guide-table td { padding: 18px 0; border-bottom: 1px solid var(--border-hairline); vertical-align: middle; }
 .guide-table td:first-child { font-family: var(--font-mono); font-size: 18px; font-weight: 500; width: 64px; }
 .guide-table td.bar-cell { padding-right: 20px; }
-.bar { height: 14px; background: var(--text-secondary); border-radius: 2px; opacity: .55; }
+.bar { height: 14px; background: var(--text-secondary); opacity: .55; }
 .guide-table td.num { font-family: var(--font-mono); font-size: 15px; letter-spacing: 0.03em; white-space: nowrap; padding-left: 12px; }
 .guide-table td.price { color: var(--text-secondary); width: 96px; }
 .guide-table tr.is-rec td { color: var(--accent); }
@@ -509,4 +510,11 @@ h1, h2, h3, p { margin: 0; }
   .chart { padding: 16px 16px 28px; }
   .chart-rows li { grid-template-columns: 44px 1fr 44px; }
   .chart-rows b { font-size: calc(var(--s) * .8); }
+}
+
+@media (max-width: 360px) {
+  .nav-end { gap: 8px; }
+  .logo { font-size: 20px; }
+  .nav-cart { font-size: 12px; }
+  .nav-end .menu-btn { padding: 0 10px; }
 }
