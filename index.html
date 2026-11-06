@@ -164,6 +164,41 @@
         </figure>
       </div>
     </section>
+
+    <!-- 4. 3D kart döngüsü -->
+    <section class="models section" id="modeller" aria-labelledby="models-title">
+      <div class="wrap">
+        <div class="models-head grid">
+          <div class="models-title">
+            <p class="label">Optik koleksiyon · 7 model</p>
+            <h2 class="display h-lg" id="models-title">Döndür, yakından bak.</h2>
+          </div>
+          <div class="models-ctrl">
+            <p class="counter mono" aria-hidden="true"><span id="count-cur">03</span> / <span id="count-total">07</span></p>
+            <button class="sq-btn" id="prev" type="button" aria-label="Önceki model" aria-controls="ring">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5M5 8h9" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
+            <button class="sq-btn" id="next" type="button" aria-label="Sonraki model" aria-controls="ring">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5M11 8H2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel" id="carousel" tabindex="0" role="region" aria-roledescription="döngü" aria-label="Modeller. Sol ve sağ ok tuşlarıyla gezin.">
+        <div class="stage" id="stage">
+          <svg class="orbit" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+            <ellipse cx="500" cy="60" rx="497" ry="57" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 6" vector-effect="non-scaling-stroke"/>
+          </svg>
+          <div class="ring" id="ring"></div>
+        </div>
+        <p class="visually-hidden" id="carousel-live" aria-live="polite"></p>
+      </div>
+
+      <div class="wrap">
+        <p class="note mono">Sürükle ya da okları kullan. Son modelden sonra ilk model gelir.</p>
+      </div>
+    </section>
   </main>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>

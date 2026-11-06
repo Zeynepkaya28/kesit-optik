@@ -307,3 +307,104 @@ h1, h2, h3, p { margin: 0; }
   .specs > div + div { padding-left: 0; }
   .specs > div:nth-child(even) { padding-left: 12px; border-left: 1px solid var(--border-hairline); }
 }
+
+/* ============ 7. Model döngüsü ============ */
+.models { background: var(--bg-subtle); overflow: hidden; }
+.models-head { align-items: end; row-gap: 32px; }
+.models-title { grid-column: 1 / span 7; }
+.models-title .display { margin-top: 16px; }
+.models-ctrl { grid-column: 9 / -1; justify-self: end; display: flex; align-items: center; gap: 8px; }
+.counter { font-size: 15px; font-weight: 500; margin: 0 16px 0 0; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.counter span:last-child { color: var(--text-secondary); }
+
+.sq-btn {
+  width: 48px; height: 48px; display: grid; place-items: center;
+  border: 1px solid var(--text-primary); border-radius: var(--r-sm);
+  background: transparent; cursor: pointer;
+}
+.sq-btn svg { width: 16px; height: 16px; }
+.sq-btn:hover { background: var(--text-primary); color: var(--bg-page); }
+
+.carousel { --card-w: 360px; margin-top: 56px; outline-offset: -2px; }
+.stage {
+  position: relative; height: 500px;
+  perspective: 1600px; perspective-origin: 50% 40%;
+  touch-action: pan-y; cursor: grab; user-select: none;
+}
+.stage.is-dragging { cursor: grabbing; }
+.orbit {
+  position: absolute; left: 50%; top: 360px; transform: translateX(-50%);
+  width: var(--orbit-w, 900px); height: 100px; color: var(--text-secondary); opacity: .7;
+}
+.ring {
+  position: absolute; left: 50%; top: 16px;
+  width: var(--card-w); margin-left: calc(var(--card-w) / -2);
+  height: 440px;
+  transform-style: preserve-3d;
+  transition: transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.ring.no-anim, .ring.no-anim .card { transition: none; }
+.ring > .card {
+  position: absolute; inset: 0 0 auto 0;
+  backface-visibility: hidden;
+  transition: opacity .8s cubic-bezier(.2,.7,.2,1);
+}
+
+.note { font-size: 13px; color: var(--text-secondary); margin-top: 24px; }
+
+/* Azaltılmış hareket: düz kaydırma */
+.carousel.is-flat .stage { height: auto; perspective: none; cursor: auto; touch-action: auto; }
+.carousel.is-flat .orbit { display: none; }
+.carousel.is-flat .ring {
+  position: static; margin: 0; width: auto; height: auto;
+  display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 8px max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter))) 16px;
+  scroll-padding-inline: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+  transform: none !important; transition: none;
+  transform-style: flat;
+}
+.carousel.is-flat .ring > .card {
+  position: relative; inset: auto; flex: 0 0 var(--card-w);
+  transform: none !important; opacity: 1 !important; scroll-snap-align: start; transition: none;
+}
+
+@media (max-width: 900px) {
+  .models-title, .models-ctrl { grid-column: 1 / -1; }
+  .models-ctrl { justify-self: start; }
+  .carousel { --card-w: 290px; margin-top: 40px; }
+  .stage { height: 480px; }
+  .ring { height: 400px; }
+  .orbit { top: 340px; height: 80px; }
+}
+
+/* ============ 8. Model Kartı ============ */
+.card {
+  --tone: var(--blue-true);
+  width: var(--card-w, 360px);
+  background: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.card-meta {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 18px; border-bottom: 1px solid var(--border-hairline);
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.03em; color: var(--text-secondary);
+}
+.card-meta b { font-weight: 500; color: var(--text-primary); }
+.card-visual {
+  background: var(--visual-bg, #EDEDF0);
+  aspect-ratio: 360 / 200;
+  display: grid; place-items: center;
+  border-bottom: 1px solid var(--border-hairline);
+}
+:root[data-theme-active="dark"] .card-visual { --visual-bg: #1E222B; }
+.card-visual svg { width: 78%; height: auto; }
+.card-body { padding: 18px 18px 22px; display: grid; gap: 6px; }
+.card-name { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+.card-desc { font-size: 15px; color: var(--text-secondary); line-height: 1.45; min-height: 2.9em; }
+.card-row { display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px; }
+.card-price { font-family: var(--font-mono); font-size: 15px; font-weight: 500; letter-spacing: 0.03em; }
+.card .btn--text { --btn-c: var(--tone); font-size: 15px; }
+.card-stripe { height: 6px; background: var(--tone); margin-top: auto; }
