@@ -199,7 +199,109 @@
         <p class="note mono">Sürükle ya da okları kullan. Son modelden sonra ilk model gelir.</p>
       </div>
     </section>
+
+    <!-- 6. Kaplamalar -->
+    <section class="section coatings" aria-labelledby="coat-title">
+      <div class="wrap grid">
+        <div class="coat-text">
+          <p class="label">Antirefle kaplama</p>
+          <h2 class="display h-lg" id="coat-title">Dört mavi, dört yoğunluk.</h2>
+          <p class="lede">Antirefle kaplama camda hafif bir yansıma rengi bırakır. Biz bunu dört tonda üretiyoruz. Hepsi aynı fiyat: <span class="mono">+450 ₺</span>, iki cam için.</p>
+        </div>
+        <ul class="swatches" role="list">
+          <li class="swatch"><div class="swatch-block" style="background:#4169E1"></div><p class="mono swatch-code">KS-01</p><p class="swatch-name">Royal</p><p class="swatch-note">Açık ton <span class="mono">#4169E1</span></p></li>
+          <li class="swatch"><div class="swatch-block" style="background:#0077BE"></div><p class="mono swatch-code">KS-02</p><p class="swatch-name">Ocean</p><p class="swatch-note">Orta ton <span class="mono">#0077BE</span></p></li>
+          <li class="swatch"><div class="swatch-block" style="background:#0073CF"></div><p class="mono swatch-code">KS-03</p><p class="swatch-name">True</p><p class="swatch-note">Canlı ton <span class="mono">#0073CF</span></p></li>
+          <li class="swatch"><div class="swatch-block" style="background:#0F52BA"></div><p class="mono swatch-code">KS-04</p><p class="swatch-name">Sapphire</p><p class="swatch-note">Koyu ton <span class="mono">#0F52BA</span></p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. Cam rehberi -->
+    <section class="section guide" id="rehber" aria-labelledby="guide-title">
+      <div class="wrap grid">
+        <div class="guide-text">
+          <p class="label">Cam rehberi · Kırılma indisi</p>
+          <h2 class="display h-md" id="guide-title">Numaran <span class="mono-num" id="g-num">−4.00</span> ise kenar kalınlığı şöyle&nbsp;değişir.</h2>
+          <p class="guide-p">İndis yükseldikçe cam incelir ama fiyat artar. Hesap, <span id="g-w-text">49</span> mm genişliğinde bir cam ve bu çerçevenin bize ait merkez kalınlıkları üzerinden.</p>
+          <form class="guide-form" id="guide-form" novalidate>
+            <div class="field">
+              <label class="label" for="g-d">Numaran (D)</label>
+              <div class="stepper">
+                <button type="button" class="sq-btn" data-step="-0.25" aria-label="Numarayı 0,25 azalt">−</button>
+                <input id="g-d" class="mono" type="number" inputmode="decimal" step="0.25" min="-12" max="8" value="-4.00">
+                <button type="button" class="sq-btn" data-step="0.25" aria-label="Numarayı 0,25 artır">+</button>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label" for="g-w">Cam genişliği (mm)</label>
+              <input id="g-w" class="mono" type="number" inputmode="numeric" step="1" min="40" max="60" value="49">
+            </div>
+          </form>
+          <p class="formula mono">kenar = merkez + y² × |D| / (2000 × (n − 1))<br>y = cam genişliği / 2 + 2</p>
+        </div>
+
+        <div class="guide-table-wrap">
+          <table class="guide-table">
+            <caption class="visually-hidden">İndise göre cam kalınlığı ve fiyat farkı</caption>
+            <thead>
+              <tr><th scope="col" class="label">İndis</th><th scope="col" class="label"><span id="g-col">Kenar kalınlığı</span></th><th scope="col" class="label num">mm</th><th scope="col" class="label num">Fark</th></tr>
+            </thead>
+            <tbody id="g-body"></tbody>
+          </table>
+          <p class="guide-note">Mavi satır, bu numara için önerimiz. Kesin değer, ölçüm ve çerçeve seçiminden sonra atölyede çıkar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Göz ölçümü -->
+    <section class="section exam" id="olcum" aria-labelledby="exam-title">
+      <div class="wrap grid">
+        <figure class="chart" aria-label="Göz tablosu">
+          <div class="chart-top mono"><span>Snellen · 6 m</span><span>kesit / KT-2</span></div>
+          <ol class="chart-rows" role="list">
+            <li style="--s:88px"><span class="mono">6/60</span><b>E</b></li>
+            <li style="--s:56px"><span class="mono">6/36</span><b>F P</b></li>
+            <li style="--s:40px"><span class="mono">6/24</span><b>T O Z</b></li>
+            <li style="--s:28px"><span class="mono">6/18</span><b>L P E D</b></li>
+            <li style="--s:20px"><span class="mono">6/12</span><b>P E C F D</b></li>
+          </ol>
+        </figure>
+        <div class="exam-text">
+          <p class="label">Göz ölçümü · Ücretsiz · 20 dk</p>
+          <h2 class="display h-lg" id="exam-title">Son ölçümün iki yıldan eskiyse, uğra.</h2>
+          <p class="lede">Ölçümü atölyedeki optometrist yapar; sonuçları reçeten yoksa yönlendirme notu olarak veririz.</p>
+          <div class="sgk">
+            <p class="label">SGK reçetesi</p>
+            <p>Göz doktorunun yazdığı gözlük reçetesi, yazıldığı tarihten itibaren <b>10 iş günü</b> içinde optisyene teslim edilmeli. Süre geçerse SGK katkı payını ödemez; reçeteyi yeniletmen gerekir.</p>
+          </div>
+          <div class="exam-actions">
+            <button class="btn btn--solid" type="button" id="book">Randevu al</button>
+            <a class="btn btn--text" href="tel:+902163456789">0216 345 67 89</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- 9. Alt bilgi -->
+  <footer class="footer">
+    <div class="wrap grid">
+      <div class="f-col">
+        <p class="label">Adres</p>
+        <p>kesit optik<br>Moda Cad. No:112, Caferağa Mah.<br>34710 Kadıköy / İstanbul</p>
+      </div>
+      <div class="f-col">
+        <p class="label">Saatler</p>
+        <p><span class="mono">Pzt–Cmt 10.00–19.30</span><br>Pazar kapalı<br>Son ölçüm randevusu <span class="mono">19.00</span></p>
+      </div>
+      <div class="f-col">
+        <p class="label">Yasal not</p>
+        <p>Numaralı cam ve kontakt lens, 5193 sayılı Optisyenlik Hakkında Kanun gereği yalnızca optisyenlik müessesesince, reçeteyle satılır.</p>
+      </div>
+      <div class="f-base mono"><span>© 2026 kesit optik</span><span>Çizimler ve ölçüler: kesit atölye</span></div>
+    </div>
+  </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 

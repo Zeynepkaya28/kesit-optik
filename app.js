@@ -282,3 +282,68 @@ document.addEventListener("click", (e) => {
   });
   setMode();
 })();
+
+/* ---------- Cam rehberi ---------- */
+(function lensGuide() {
+  const body = $("#g-body");
+  if (!body) return;
+  // n: kırılma indisi; t: eksi camda merkez, artı camda kenar için en ince değer (mm)
+  const LENSES = [
+    { n: 1.50, t: 2.3, extra: "dahil" },
+    { n: 1.60, t: 1.9, extra: "+900 ₺" },
+    { n: 1.67, t: 1.6, extra: "+1.900 ₺" },
+    { n: 1.74, t: 1.4, extra: "+3.600 ₺" },
+  ];
+  const dIn = $("#g-d"), wIn = $("#g-w");
+  const fmt1 = (v) => v.toFixed(1).replace(".", ",");
+  const fmtD = (d) => (d > 0 ? "+" : d < 0 ? "−" : "") + Math.abs(d).toFixed(2);
+
+  function recommend(d) {
+    const a = Math.abs(d);
+    return a < 2 ? 1.5 : a < 4 ? 1.6 : a < 6 ? 1.67 : 1.74;
+  }
+
+  function update() {
+    let d = parseFloat(String(dIn.value).replace(",", "."));
+    let w = parseFloat(wIn.value);
+    if (!Number.isFinite(d)) d = 0;
+    if (!Number.isFinite(w)) w = 49;
+    d = Math.max(-12, Math.min(8, d));
+    w = Math.max(40, Math.min(60, w));
+    const y = w / 2 + 2;
+    const rows = LENSES.map((l) => ({ ...l, mm: l.t + (y * y * Math.abs(d)) / (2000 * (l.n - 1)) }));
+    const max = Math.max(...rows.map((r) => r.mm));
+    const rec = recommend(d);
+
+    $("#g-num").textContent = fmtD(d);
+    $("#g-w-text").textContent = w;
+    $("#g-col").textContent = d > 0 ? "Merkez kalınlığı" : "Kenar kalınlığı";
+    body.innerHTML = rows.map((r) => `
+      <tr class="${r.n === rec ? "is-rec" : ""}">
+        <td>${r.n.toFixed(2)}</td>
+        <td class="bar-cell"><div class="bar" style="width:${((r.mm / max) * 100).toFixed(1)}%"></div></td>
+        <td class="num">${fmt1(r.mm)} mm</td>
+        <td class="num price">${r.extra}</td>
+      </tr>`).join("");
+  }
+
+  dIn.addEventListener("input", update);
+  wIn.addEventListener("input", update);
+  dIn.addEventListener("change", () => {
+    const d = parseFloat(dIn.value);
+    if (Number.isFinite(d)) dIn.value = (Math.round(Math.max(-12, Math.min(8, d)) * 4) / 4).toFixed(2);
+    update();
+  });
+  $$("[data-step]").forEach((b) => b.addEventListener("click", () => {
+    const d = (parseFloat(dIn.value) || 0) + parseFloat(b.dataset.step);
+    dIn.value = Math.max(-12, Math.min(8, d)).toFixed(2);
+    update();
+  }));
+  $("#guide-form").addEventListener("submit", (e) => e.preventDefault());
+  update();
+})();
+
+/* ---------- Randevu ---------- */
+$("#book")?.addEventListener("click", () =>
+  toast('<span>Randevu formu hazırlanıyor. Şimdilik telefonla:</span><span class="mono">0216 345 67 89</span>')
+);

@@ -408,3 +408,105 @@ h1, h2, h3, p { margin: 0; }
 .card-price { font-family: var(--font-mono); font-size: 15px; font-weight: 500; letter-spacing: 0.03em; }
 .card .btn--text { --btn-c: var(--tone); font-size: 15px; }
 .card-stripe { height: 6px; background: var(--tone); margin-top: auto; }
+
+/* ============ 9. Kaplamalar ============ */
+.coatings .grid { align-items: end; row-gap: 48px; }
+.coat-text { grid-column: 1 / span 5; }
+.coat-text .display { margin-top: 16px; }
+.coat-text .lede { margin-top: 24px; }
+.swatches {
+  grid-column: 7 / -1; list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 150px)); gap: 24px; justify-content: end;
+}
+.swatch-block { width: 100%; aspect-ratio: 150 / 240; border-radius: var(--r-sm); }
+.swatch-code { font-size: 12px; margin-top: 14px; color: var(--text-secondary); padding-top: 10px; border-top: 1px solid var(--border-hairline); }
+.swatch-name { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin-top: 2px; }
+.swatch-note { font-size: 14px; color: var(--text-secondary); display: flex; justify-content: space-between; gap: 6px; flex-wrap: wrap; }
+.swatch-note .mono { font-size: 12px; }
+
+/* ============ 10. Cam rehberi ============ */
+.guide { border-top: 1px solid var(--border-hairline); }
+.guide .grid { row-gap: 48px; }
+.guide-text { grid-column: 1 / span 5; }
+.guide-text .display { margin-top: 16px; }
+.mono-num { font-family: var(--font-mono); font-weight: 500; letter-spacing: 0; }
+.guide-p { margin-top: 20px; color: var(--text-secondary); max-width: 44ch; }
+.guide-form { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 32px; }
+.field { display: grid; gap: 8px; }
+.field input {
+  height: 48px; width: 120px; padding: 0 12px;
+  border: 1px solid var(--text-primary); border-radius: var(--r-sm);
+  background: var(--bg-page); color: var(--text-primary);
+  font-size: 18px; font-weight: 500;
+}
+.stepper { display: flex; gap: 6px; }
+.stepper input { width: 104px; text-align: center; }
+.stepper .sq-btn { font-size: 20px; }
+.formula { margin-top: 28px; font-size: 12px; color: var(--text-secondary); line-height: 1.8; }
+
+.guide-table-wrap { grid-column: 7 / -1; }
+.guide-table { width: 100%; border-collapse: collapse; }
+.guide-table th { text-align: left; padding: 0 0 12px; border-bottom: 1px solid var(--text-primary); font-weight: 500; }
+.guide-table th.num, .guide-table td.num { text-align: right; }
+.guide-table td { padding: 18px 0; border-bottom: 1px solid var(--border-hairline); vertical-align: middle; }
+.guide-table td:first-child { font-family: var(--font-mono); font-size: 18px; font-weight: 500; width: 64px; }
+.guide-table td.bar-cell { padding-right: 20px; }
+.bar { height: 14px; background: var(--text-secondary); border-radius: 2px; opacity: .55; }
+.guide-table td.num { font-family: var(--font-mono); font-size: 15px; letter-spacing: 0.03em; white-space: nowrap; padding-left: 12px; }
+.guide-table td.price { color: var(--text-secondary); width: 96px; }
+.guide-table tr.is-rec td { color: var(--accent); }
+.guide-table tr.is-rec .bar { background: var(--accent); opacity: 1; }
+.guide-table tr.is-rec td:first-child::after { content: "öneri"; display: block; font-size: 11px; letter-spacing: 0.03em; text-transform: uppercase; }
+.guide-note { margin-top: 16px; font-size: 14px; color: var(--text-secondary); }
+
+/* ============ 11. Göz ölçümü ============ */
+.exam { background: var(--bg-subtle); }
+.exam .grid { align-items: center; row-gap: 48px; }
+.chart {
+  grid-column: 1 / span 5; margin: 0;
+  background: #FFFFFF; color: #1D1D1F;
+  border: 1px solid var(--border-hairline); border-radius: var(--r-md);
+  padding: 20px 24px 36px;
+}
+.chart-top { display: flex; justify-content: space-between; font-size: 12px; text-transform: uppercase; color: #6E6E73; border-bottom: 1px solid #E5E5EA; padding-bottom: 12px; }
+.chart-rows { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 18px; }
+.chart-rows li { display: grid; grid-template-columns: 56px 1fr 56px; align-items: center; }
+.chart-rows li span { font-size: 11px; color: #6E6E73; }
+.chart-rows b { font-size: var(--s); line-height: 1; font-weight: 700; text-align: center; letter-spacing: 0.32em; margin-right: -0.32em; }
+.exam-text { grid-column: 7 / -1; }
+.exam-text .display { margin-top: 16px; }
+.exam-text .lede { margin-top: 24px; }
+.sgk { margin-top: 32px; padding: 20px 0 0; border-top: 1px solid var(--text-primary); max-width: 52ch; }
+.sgk p + p { margin-top: 8px; }
+.exam-actions { display: flex; gap: 28px; align-items: center; margin-top: 32px; flex-wrap: wrap; }
+.exam-actions .btn--text { --btn-c: var(--text-primary); font-family: var(--font-mono); font-weight: 500; }
+
+/* ============ 12. Alt bilgi ============ */
+.footer { border-top: 1px solid var(--border-hairline); padding-block: 64px 32px; font-size: 15px; }
+.footer .grid { row-gap: 40px; }
+.f-col { grid-column: span 4; }
+.f-col p + p { margin-top: 10px; }
+.f-col .label { margin-bottom: 10px; }
+.f-col:last-of-type p:last-child { color: var(--text-secondary); max-width: 40ch; }
+.f-base {
+  grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-hairline); padding-top: 20px;
+}
+
+@media (max-width: 1180px) {
+  .coat-text { grid-column: 1 / -1; }
+  .swatches { grid-column: 1 / -1; justify-content: start; }
+  .guide-text { grid-column: 1 / span 6; }
+  .guide-table-wrap { grid-column: 7 / -1; }
+}
+@media (max-width: 900px) {
+  .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .swatch-block { aspect-ratio: 150 / 160; }
+  .guide-text, .guide-table-wrap, .chart, .exam-text, .f-col { grid-column: 1 / -1; }
+  .guide-table td:first-child { font-size: 15px; width: 52px; }
+  .guide-table td.price { width: 76px; }
+  .guide-table td.bar-cell { padding-right: 10px; }
+  .chart { padding: 16px 16px 28px; }
+  .chart-rows li { grid-template-columns: 44px 1fr 44px; }
+  .chart-rows b { font-size: calc(var(--s) * .8); }
+}
