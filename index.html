@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>kesit optik — Kadıköy atölye</title>
+  <meta name="description" content="Kadıköy Moda'da optik atölye. Çerçeve, güneş gözlüğü, numaralı cam ve ücretsiz göz ölçümü.">
+  <script>
+    // Tema: kayıtlı seçim varsa onu kullan, yoksa sistem ayarı
+    (function () {
+      try {
+        var t = localStorage.getItem("kesit-theme");
+        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#ana">İçeriğe geç</a>
+
+  <!-- 1. Bilgi şeridi -->
+  <div class="strip">
+    <div class="wrap">
+      <span>Kadıköy atölye · Moda Cad. No:112</span>
+      <span>Pzt–Cmt 10.00–19.30 · Göz ölçümü ücretsiz</span>
+    </div>
+  </div>
+
+  <!-- 2. Gezinme -->
+  <header class="nav" id="nav">
+    <div class="wrap">
+      <a class="logo" href="#" aria-label="kesit optik, ana sayfa">kesit<span>.</span>optik</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#modeller">Optik</a></li>
+        <li><a href="#modeller">Güneş</a></li>
+        <li><a href="#rehber">Lens</a></li>
+        <li><a href="#rehber">Cam rehberi</a></li>
+        <li><a href="#olcum">Atölye</a></li>
+      </ul>
+      <div class="nav-end">
+        <a class="nav-cart" href="#" id="cart">Sepet (<span id="cart-count">0</span>)</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Koyu temaya geç">
+          <svg class="i-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1Z"/></svg>
+          <svg class="i-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6 13 13M3 13l1.4-1.4M11.6 4.4 13 3"/></svg>
+        </button>
+        <a class="btn btn--line btn--sm" href="#olcum">Randevu al</a>
+        <button class="btn btn--line btn--sm menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">Menü</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="ana">
+    <!-- Faz 1: geçici bileşen sayfası -->
+    <section class="section">
+      <div class="wrap grid" style="row-gap:48px">
+        <div style="grid-column:1/-1">
+          <p class="label">Bileşenler · Faz 1</p>
+          <h1 class="display h-xl" style="margin-top:16px">Bu çerçeve 22 gram.</h1>
+        </div>
+        <div style="grid-column:span 4;display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+          <button class="btn btn--solid" type="button">Satın al — <span class="mono">2.450 ₺</span></button>
+          <button class="btn btn--line" type="button">Mağazada dene</button>
+          <a class="btn btn--text" href="#">İncele →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
