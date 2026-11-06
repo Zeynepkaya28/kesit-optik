@@ -14,6 +14,7 @@
       } catch (e) {}
     })();
   </script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230F52BA'/%3E%3Ccircle cx='10' cy='17' r='5' fill='none' stroke='white' stroke-width='2'/%3E%3Ccircle cx='22' cy='17' r='5' fill='none' stroke='white' stroke-width='2'/%3E%3Cpath d='M15 16h2' stroke='white' stroke-width='2'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -54,18 +55,113 @@
   </header>
 
   <main id="ana">
-    <!-- Faz 1: geçici bileşen sayfası -->
-    <section class="section">
-      <div class="wrap grid" style="row-gap:48px">
-        <div style="grid-column:1/-1">
-          <p class="label">Bileşenler · Faz 1</p>
-          <h1 class="display h-xl" style="margin-top:16px">Bu çerçeve 22 gram.</h1>
+    <!-- 3. Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap grid">
+        <div class="hero-text">
+          <p class="label">No. 03 — Kuzguncuk</p>
+          <h1 class="display h-xl" id="hero-title">Bu çerçeve 22&nbsp;gram.</h1>
+          <p class="lede">0,8 mm titanyum telden büküldü, menteşeleri vidasız yaylı. Moda'daki atölyede yüzüne göre elle ayarlanıyor; numaralı camla birlikte yaklaşık 26 gram geliyor.</p>
+          <div class="hero-actions">
+            <button class="btn btn--solid" type="button" data-add="Kuzguncuk No. 03" data-price="2.450 ₺">Satın al — <span class="mono">2.450 ₺</span></button>
+            <a class="btn btn--line" href="#olcum">Mağazada dene</a>
+          </div>
+          <dl class="specs">
+            <div><dt class="label">Cam</dt><dd class="mono">49 mm</dd></div>
+            <div><dt class="label">Köprü</dt><dd class="mono">21 mm</dd></div>
+            <div><dt class="label">Sap</dt><dd class="mono">145 mm</dd></div>
+            <div><dt class="label">Ağırlık</dt><dd class="mono">22 g</dd></div>
+          </dl>
         </div>
-        <div style="grid-column:span 4;display:flex;flex-wrap:wrap;gap:16px;align-items:center">
-          <button class="btn btn--solid" type="button">Satın al — <span class="mono">2.450 ₺</span></button>
-          <button class="btn btn--line" type="button">Mağazada dene</button>
-          <a class="btn btn--text" href="#">İncele →</a>
-        </div>
+
+        <figure class="drawing">
+          <svg viewBox="0 0 640 600" role="img" aria-labelledby="drawing-title">
+            <title id="drawing-title">Kuzguncuk çerçevesinin önden teknik çizimi: cam genişliği 49 mm, köprü 21 mm, toplam genişlik 140 mm.</title>
+            <defs>
+              <pattern id="grid20" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M20 0H0V20" fill="none" stroke="#FFFFFF" stroke-opacity=".12" stroke-width="1"/>
+              </pattern>
+              <pattern id="grid100" width="100" height="100" patternUnits="userSpaceOnUse" x="20" y="0">
+                <path d="M100 0H0V100" fill="none" stroke="#FFFFFF" stroke-opacity=".22" stroke-width="1"/>
+              </pattern>
+              <path id="lensL" d="M140 241 C172 226 252 224 283 237 C293 263 291 318 268 342 C246 361 176 362 152 344 C132 326 128 263 140 241 Z"/>
+            </defs>
+            <rect width="640" height="600" fill="#0F52BA"/>
+            <rect width="640" height="600" fill="url(#grid20)"/>
+            <rect width="640" height="600" fill="url(#grid100)"/>
+
+            <!-- Eksen -->
+            <path d="M320 150V470" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="1" stroke-dasharray="14 4 2 4"/>
+            <path d="M90 290H550" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="1" stroke-dasharray="14 4 2 4"/>
+
+            <!-- Gözlük -->
+            <g class="frame">
+              <!-- saplar (önden kısa görünür) -->
+              <path d="M101 244h-6v14h6z M539 244h6v14h-6z" fill="#B9BEC6"/>
+              <!-- uç parçaları -->
+              <path d="M139 246 C126 244 112 244 101 248" fill="none" stroke="#D3D7DD" stroke-width="6" stroke-linecap="round"/>
+              <path d="M501 246 C514 244 528 244 539 248" fill="none" stroke="#D3D7DD" stroke-width="6" stroke-linecap="round"/>
+              <!-- camlar -->
+              <use href="#lensL" fill="#FFFFFF" fill-opacity=".07"/>
+              <use href="#lensL" fill="#FFFFFF" fill-opacity=".07" transform="matrix(-1 0 0 1 640 0)"/>
+              <!-- yansıma -->
+              <path d="M168 330 L214 250 M184 334 L224 266" stroke="#FFFFFF" stroke-opacity=".22" stroke-width="2" stroke-linecap="round"/>
+              <path d="M472 330 L426 250" stroke="#FFFFFF" stroke-opacity=".18" stroke-width="2" stroke-linecap="round"/>
+              <!-- çerçeve teli -->
+              <use href="#lensL" fill="none" stroke="#D3D7DD" stroke-width="6"/>
+              <use href="#lensL" fill="none" stroke="#D3D7DD" stroke-width="6" transform="matrix(-1 0 0 1 640 0)"/>
+              <use href="#lensL" fill="none" stroke="#7E858F" stroke-width="1" transform="translate(0 2)" opacity=".7"/>
+              <use href="#lensL" fill="none" stroke="#7E858F" stroke-width="1" transform="matrix(-1 0 0 1 640 2)" opacity=".7"/>
+              <!-- köprü -->
+              <path d="M284 251 C300 233 340 233 356 251" fill="none" stroke="#D3D7DD" stroke-width="5" stroke-linecap="round"/>
+              <path d="M286 262 C302 247 338 247 354 262" fill="none" stroke="#D3D7DD" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- burun pedleri -->
+              <path d="M290 268 C300 280 302 292 300 300 M350 268 C340 280 338 292 340 300" fill="none" stroke="#B9BEC6" stroke-width="2"/>
+              <ellipse cx="297" cy="312" rx="6" ry="13" fill="#FFFFFF" fill-opacity=".28" stroke="#D3D7DD" stroke-width="1.5" transform="rotate(14 297 312)"/>
+              <ellipse cx="343" cy="312" rx="6" ry="13" fill="#FFFFFF" fill-opacity=".28" stroke="#D3D7DD" stroke-width="1.5" transform="rotate(-14 343 312)"/>
+              <!-- vidasız yay menteşe -->
+              <circle cx="104" cy="251" r="3.5" fill="#0F52BA" stroke="#D3D7DD" stroke-width="1.5"/>
+              <circle cx="536" cy="251" r="3.5" fill="#0F52BA" stroke="#D3D7DD" stroke-width="1.5"/>
+            </g>
+
+            <!-- Ölçü çizgileri -->
+            <g class="dims" stroke="#FFFFFF" stroke-width="1" fill="none">
+              <!-- uzatma çizgileri üst -->
+              <path d="M133 230V178 M287 236V178 M353 236V178"/>
+              <!-- 49 -->
+              <path d="M133 192H287"/>
+              <path d="M128 197l10-10 M282 197l10-10 M348 197l10-10" stroke-width="1.6"/>
+              <!-- 21 -->
+              <path d="M287 192H353"/>
+              <!-- uzatma çizgileri alt -->
+              <path d="M97 262V448 M543 262V448"/>
+              <!-- 140 -->
+              <path d="M97 432H290 M350 432H543"/>
+              <path d="M92 437l10-10 M538 437l10-10" stroke-width="1.6"/>
+              <!-- cam yüksekliği 40 -->
+              <path d="M478 228H582 M470 358H582" stroke-opacity=".5"/>
+              <path d="M572 228V357"/>
+              <path d="M567 233l10-10 M567 362l10-10" stroke-width="1.6"/>
+            </g>
+            <g fill="#FFFFFF" font-family="IBM Plex Mono, monospace" font-size="15" font-weight="500" text-anchor="middle" letter-spacing=".45">
+              <text x="210" y="183">49</text>
+              <text x="320" y="183">21</text>
+              <text x="320" y="437">140</text>
+              <text x="590" y="297" transform="rotate(-90 590 297)" dy="-4">40</text>
+            </g>
+            <g fill="#FFFFFF" fill-opacity=".8" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing=".4">
+              <text x="210" y="216" text-anchor="middle">CAM</text>
+              <text x="320" y="216" text-anchor="middle">KÖPRÜ</text>
+              <text x="320" y="462" text-anchor="middle">TOPLAM GENİŞLİK</text>
+            </g>
+          </svg>
+          <figcaption class="drawing-meta">
+            <span class="tl">Ön görünüş · Ölçek 1:1</span>
+            <span class="tr">Çizim 03 / 07</span>
+            <span class="bl">Kuzguncuk · Titanyum, gümüş</span>
+            <span class="br">Ölçüler mm</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
   </main>
